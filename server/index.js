@@ -38,6 +38,16 @@ app.post("/add", async (req, res) => {
     }
 });
 
+
+app.get("/list", async (req, res) => {
+    ClientModel.find({}, (error, result) => {
+        if (error) {
+            res.send(error)
+        }
+        res.send(result)
+    })
+});
+
 app.listen(8080, () => {
     console.log("The server is running on port 8080")
 });
