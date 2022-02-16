@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import './App.css';
+import Axios from "axios";
 
 function App() {
 
@@ -9,8 +10,12 @@ function App() {
   const [clientAge, enterClientAge] = useState(0)
 
   const addToList = () => {
-    console.log(clientName + clientSurname + clientEmail + clientAge);
-  }
+    Axios.post("http://localhost:8080/add", 
+    {clientName: clientName, 
+    clientSurname: clientSurname, 
+    clientEmail: clientEmail,
+    clientAge: clientAge })
+  };
 
   return (
     <div className="App">

@@ -1,11 +1,13 @@
 import express from "express";
 import mongoose  from "mongoose";
+import cors from "cors";
 
 const app = express();
 //test
 import ClientModel from "./models/Client.js";
 
 app.use(express.json());
+app.use(cors());
 
 
 // test
@@ -14,8 +16,16 @@ mongoose.connect("mongodb+srv://admin:admin@final-project.dylys.mongodb.net/clie
 });
 
 
-app.get("/", async (req, res) => {
-    const client = new ClientModel({clientName: "Steve", clientSurname:"Rogers", clientEmail:"tony@avengers.com", clientAge: 40 });
+app.post("/add", async (req, res) => {
+
+    const clientName = req.body.clientName
+    const clientSurname = req.body.clientSurname
+    const clientEmail = req.body.clientEmail
+    const clientAge = req.body.clientAge
+
+    const client = new ClientModel({
+        clientName: clientName, clientSurname: clientSurname, clientEmail: clientEmail, clientAge: clientAge 
+    });
     
     try {
         await client.save();
