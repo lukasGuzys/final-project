@@ -1,5 +1,5 @@
 import express from "express";
-import mongoose  from "mongoose";
+import mongoose from "mongoose";
 import cors from "cors";
 
 const app = express();
@@ -24,13 +24,16 @@ app.post("/add", async (req, res) => {
     const clientAge = req.body.clientAge
 
     const client = new ClientModel({
-        clientName: clientName, clientSurname: clientSurname, clientEmail: clientEmail, clientAge: clientAge 
+        clientName: clientName,
+        clientSurname: clientSurname,
+        clientEmail: clientEmail,
+        clientAge: clientAge
     });
-    
+
     try {
         await client.save();
         res.send("client added")
-    } catch(err) {
+    } catch (err) {
         console.log(err)
     }
 });
