@@ -1,4 +1,4 @@
-.App {
+.card {
   margin: auto;
   margin-top: 2rem;
   text-align: center;
@@ -28,3 +28,22 @@ input{
 label{
   padding: 2px;
 }
+
+.list {
+  margin: auto;
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border: 2px solid black;
+  background-color: rgb(179, 126, 58);
+  font-size: x-small;
+}
+
+.list h1{
+  display: flex;
+  justify-content: space-between;
+  margin: 2px;
+}
+

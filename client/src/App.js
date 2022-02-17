@@ -29,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <div className="card">
       <h1>Clients List</h1>
 
       <label>Name: </label>
@@ -41,14 +42,15 @@ function App() {
       <input type="number" onChange={(event) => { enterClientAge(event.target.value) }} />
       <button onClick={addToList}>Add Client</button>
       <h1>Clients List</h1>
+      </div>
 
       {clientList.map((val, key) => {
         return (
-        <div key={key}>
-          <h1>{val.clientName}</h1>
-          <h1> {val.clientSurname}</h1>
-          <h1> {val.clientEmail}</h1>
-          <h1> {val.clientAge}</h1>
+        <div className="list" key={key}>
+          <h1>Name: {val.clientName}</h1>
+          <h1>Surname: {val.clientSurname}</h1>
+          <h1>Email: {val.clientEmail}</h1>
+          <h1>Age: {val.clientAge}</h1>
           
         </div>
         );
