@@ -48,6 +48,13 @@ app.get("/list", async (req, res) => {
     })
 });
 
+app.delete("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+
+    await ClientModel.findByIdAndRemove(id).exec();
+    res.send("client deleted")
+})
+
 app.listen(8080, () => {
     console.log("The server is running on port 8080")
 });
