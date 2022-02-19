@@ -31,6 +31,7 @@ function App() {
     Axios.delete(`http://localhost:8080/delete/${id}`)
   };
 
+  const year = new Date().getFullYear();
   return (
     <div className="App">
       <div className="card">
@@ -41,7 +42,7 @@ function App() {
         <label>Surname: </label>
         <input type="text" onChange={(event) => { enterClientSurname(event.target.value) }} />
         <label>Email: </label>
-        <input type="text" onChange={(event) => { enterClientEmail(event.target.value) }} />
+        <input type="email" onChange={(event) => { enterClientEmail(event.target.value) }} />
         <label>Age: </label>
         <input type="number" onChange={(event) => { enterClientAge(event.target.value) }} />
         <button onClick={addToList}>Add Client</button>
@@ -54,7 +55,7 @@ function App() {
             <h1>Name: {val.clientName}</h1>
             <h1>Surname: {val.clientSurname}</h1>
             <h1>Email: {val.clientEmail}</h1>
-            <h1>Age: {val.clientAge}</h1>
+            <h1>Birth Date: {year - val.clientAge}</h1>
             <div className="update-input">
               <input type="text" placeholder="Change client"/>
               <button>Update</button>
