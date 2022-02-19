@@ -55,7 +55,8 @@ function App() {
           <h1>Surname: {val.clientSurname}</h1>
           <h1>Email: {val.clientEmail}</h1>
           <h1>Age: {val.clientAge}</h1>
-          <button onClick={() => deleteClient (val._id)}>Delete</button>
+          <button onClick={() => deleteClient (val._id)} 
+          className="delete-btn">Delete</button>
         </div>
         );
       })}
