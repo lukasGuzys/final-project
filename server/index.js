@@ -58,11 +58,17 @@ app.delete("/delete/:id", async (req, res) => {
 app.put("/update", async (req, res) => {
 
     const newClientName = req.body.newClientName;
+    const newClientSurname = req.body.newClientSurname;
+    const newClientEmail= req.body.newClientEmail;
+    const newClientAge = req.body.newClientAge;
     const id = req.body.id;
 
     try {
         await ClientModel.findById(id, (err, updatedClient) => {
             updatedClient.clientName = newClientName
+            updatedClient.clientSurname = newClientSurname
+            updatedClient.clientEmail = newClientEmail
+            updatedClient.clientAge = newClientAge
             updatedClient.save();
             res.send("update");
         });
