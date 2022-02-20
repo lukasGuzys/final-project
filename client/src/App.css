@@ -56,9 +56,8 @@ label {
   font-size: large;
   
 }
-<<<<<<< HEAD
 .update-btn{
-  background-color: rgb(3, 92, 3);
+  background-color: rgb(0, 97, 0);
   font-size: medium;
 }
 
@@ -74,8 +73,4 @@ div.list-box {
 .list input{
   margin: 0;
   width: 15rem;
-=======
-.update-input button{
-  background-color: rgb(0, 104, 0);
->>>>>>> main
 }
