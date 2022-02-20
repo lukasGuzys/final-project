@@ -55,6 +55,22 @@ app.delete("/delete/:id", async (req, res) => {
     res.send("client deleted")
 })
 
+app.put("/update", async (req, res) => {
+
+    const newClientName = req.body.newClientName;
+    const id = req.body.id;
+
+    try {
+        await ClientModel.findById(id, (err, updatedClient) => {
+            updatedClient.clientName = newClientName
+            updatedClient.save();
+            res.send("update");
+        });
+    } catch (err) {
+        console.log(err)
+    }
+});
+
 app.listen(8080, () => {
     console.log("The server is running on port 8080")
 });

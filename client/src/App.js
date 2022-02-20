@@ -9,6 +9,8 @@ function App() {
   const [clientEmail, enterClientEmail] = useState("");
   const [clientAge, enterClientAge] = useState(0);
 
+  const [newClientName, enterNewClientName] = useState("")
+
   const [clientList, enterClientList] = useState([])
 
   useEffect(() => {
@@ -24,8 +26,14 @@ function App() {
         clientSurname: clientSurname,
         clientEmail: clientEmail,
         clientAge: clientAge
-      })
+      });
   };
+
+  const updateClient = (id) => {
+    Axios.put("http://localhost:8080/update", {
+      id: id, 
+      newClientName: newClientName,})
+  }
 
   const deleteClient = (id) => {
     Axios.delete(`http://localhost:8080/delete/${id}`)
@@ -56,10 +64,15 @@ function App() {
             <h1>Surname: {val.clientSurname}</h1>
             <h1>Email: {val.clientEmail}</h1>
             <h1>Birth Date: {year - val.clientAge}</h1>
-            <div className="update-input">
-              <input type="text" placeholder="Change client"/>
-              <button>Update</button>
-            </div>
+
+            <input type="text"
+              placeholder="Change client"
+              onChange={(event) => {
+                enterNewClientName(event.target.value)
+              }}
+            />
+            <button onClick={() => updateClient(val._id)}>Update</button>
+
             <button onClick={() => deleteClient(val._id)}
               className="delete-btn">Delete</button>
           </div>
