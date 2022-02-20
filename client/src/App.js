@@ -67,40 +67,48 @@ function App() {
       {clientList.map((val, key) => {
         return (
           <div className="list" key={key}>
-            <h1>Name: {val.clientName}</h1>
-            <h1>Surname: {val.clientSurname}</h1>
-            <h1>Email: {val.clientEmail}</h1>
+
+            <div className="list-box">
+              <h1>Name: {val.clientName}</h1>
+              <input type="text"
+                placeholder="Change Name"
+                onChange={(event) => {
+                  enterNewClientName(event.target.value)
+                }}
+              />
+            </div>
+
+            <div className="list-box">
+              <h1>Surname: {val.clientSurname}</h1>
+              <input type="text"
+                placeholder="Change Surname"
+                onChange={(event) => {
+                  enterNewClientSurname(event.target.value)
+                }}
+              />
+            </div>
+
+            <div className="list-box">
+              <h1>Email: {val.clientEmail}</h1>
+              <input type="email"
+                placeholder="Change Email"
+                onChange={(event) => {
+                  enterNewClientEmail(event.target.value)
+                }}
+              />
+            </div>
+
+            <div className="list-box">
             <h1>Birth Date: {year - val.clientAge}</h1>
-
-            <input type="text"
-              placeholder="Change Name"
-              onChange={(event) => {
-                enterNewClientName(event.target.value)
-              }}
-            />
-
-            <input type="text"
-              placeholder="Change Surname"
-              onChange={(event) => {
-                enterNewClientSurname(event.target.value)
-              }}
-            />
-
-            <input type="email"
-              placeholder="Change Email"
-              onChange={(event) => {
-                enterNewClientEmail(event.target.value)
-              }}
-            />
-
             <input type="number"
               placeholder="Change Age"
               onChange={(event) => {
                 enterNewClientAge(event.target.value)
               }}
             />
+            </div>
 
-            <button onClick={() => updateClient(val._id)}>Update</button>
+            <button className="update-btn" onClick={() => updateClient(val._id)}>Update</button>
 
             <button onClick={() => deleteClient(val._id)}
               className="delete-btn">Delete</button>
